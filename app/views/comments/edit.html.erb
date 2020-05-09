@@ -1,0 +1,13 @@
+<h1>Edit Comment</h1>
+
+<section class="comments-form">
+  <%= form_with model: @comment, url: , local: true do |form| %>
+  <p>
+    <%= form.label :content %><br>
+    <%= form.text_area :content %>
+  </p>
+  <p>
+    <%= form.submit 'Update' %>
+  </p>
+  <% end %>
+</section>
