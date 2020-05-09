@@ -14,22 +14,12 @@
   <% end%>
 </article>
 
-<section class="comments-form">
-  <%= form_with model: [@post, @post.comments.build], local: true do |form| %>
-  <p>
-    <%= form.label :content %><br>
-    <%= form.text_area :content %>
-  </p>
-  <p>
-    <%= form.submit 'Add comment' %>
-  </p>
-  <% end %>
-</section>
+<%= render "comments/form" %>
 
 <section class="comments">
   <% @post.comments.each do |comment| %>
-    <article class="comment">
-      <p><%= comment.content %></p>
-    </article>
+  <article class="comment">
+    <p><%= comment.content %></p>
+  </article>
   <% end %>
 </section>
