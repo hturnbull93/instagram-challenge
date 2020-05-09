@@ -24,4 +24,15 @@ RSpec.feature 'Posts comments', type: :feature do
     click_on 'Add comment'
     expect(first('.comment')).to have_content 'This is a comment'
   end
+
+  scenario 'User can edit comment' do
+    fill_in 'comment[content]', with: 'This is a comment'
+    click_on 'Add comment'
+    within(first('.comment')) do
+      click_on 'Edit'
+    end
+    fill_in 'comment[content]', with: 'This is different content'
+    click_on 'Update'
+    expect(first('.comment')).to have_content 'This is different content'
+  end
 end
