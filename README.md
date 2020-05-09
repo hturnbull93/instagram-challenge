@@ -94,7 +94,7 @@ I extracted user stories from the short brief above.
 
 ### Commenting
 
-- [ ] 3.1
+- [x] 3.1
 
 > As a Signed In User  
 > I can comment on a photo  
@@ -442,11 +442,11 @@ Feature test: Posts listed with username, in list and show. Red.
 
 Green.
 
-_Later on, refactored to use Rails' delegate method._
+Refactored to use Rails' delegate method.
 
 ### Adding Comments
 
-- [ ] 3.1
+- [x] 3.1
 
 > As a Signed In User  
 > I can comment on a photo  
@@ -458,9 +458,15 @@ Feature test: User can comment on a post. Red.
 - Generated comments controller using: `rails g controller comments`.
 - Migrated the db.
 - Added to Post model to have many comments, with destroy dependency (comments can't exist if the post they are on is gone).
-- 
+- Added form on the post show view to add a comment.
+- Nested comments resources within posts resources in routes config.
+- Added comment_params to require comment and permit content.
+- Added create route on comments finds the post, and creates a new comment on it.
+- Then set that comment's `user_id` to the current_user's id (comments need to be associated with a user in order to be saved).
+- Then redirect to the post.
+- Added rendering of all post's comments on the post show view.
 
-<!--
+Green.
 
 ### Editing Comments
 
@@ -469,6 +475,14 @@ Feature test: User can comment on a post. Red.
 > As a Signed In User  
 > I can edit a comment I have made  
 > So I can correct spelling errors
+
+Feature test: User can edit their comment content and see changes made.
+
+- Added link to edit comment in comments render.
+
+
+
+<!--
 
 ### Deleting Comments
 
